@@ -23,4 +23,15 @@ const theme: DefaultTheme = {
   }
 }
 
-export { theme }
+const lightTheme = {
+  ...theme,
+  background: "#E1DDCE",
+  text: "black"
+}
+const darkTheme = {
+  ...theme,
+  background: "#0b0908",
+  text: "white"
+}
+
+export { theme, lightTheme, darkTheme }

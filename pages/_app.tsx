@@ -1,13 +1,15 @@
-import "../styles/globals.css"
+import { useEffect, useState } from "react"
 import type { AppProps } from "next/app"
 import { ThemeProvider } from "styled-components"
 
-import { theme } from "../styled/theme"
+import { lightTheme, darkTheme } from "../styled/theme"
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [theme, setTheme] = useState("lightTheme")
+
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
+    <ThemeProvider theme={theme === "darkTheme" ? darkTheme : lightTheme}>
+      <Component theme={theme} setTheme={setTheme} {...pageProps} />
     </ThemeProvider>
   )
 }

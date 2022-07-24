@@ -1,11 +1,9 @@
 import styled, { keyframes, css } from "styled-components"
 import { Switch } from "@headlessui/react"
 import { ReactNode } from "react"
+import { Link as ReactLink } from "react-scroll"
 
-interface Props {
-  background: string
-}
-export const Container = styled.div<Props>`
+export const Container = styled.div`
   display: flex;
   position: sticky;
   top: 0;
@@ -13,7 +11,7 @@ export const Container = styled.div<Props>`
   justify-content: flex-start;
   align-items: center;
   width: 100vw;
-  background: ${props => (props.background === "dawn" ? "#e1ddce" : "#0b0908")};
+  background: ${props => props.theme.background};
 `
 
 export const InnerContainer = styled.div`
@@ -40,8 +38,8 @@ export const Icon = styled.i`
   }
 `
 interface ThemeProps {
-  checked: boolean
   onChange: (value: boolean) => void
+  checked: boolean
   children: ReactNode
 }
 export const ThemeSwitch = styled(Switch)<ThemeProps>`
@@ -51,7 +49,8 @@ export const ThemeSwitch = styled(Switch)<ThemeProps>`
   width: 3rem;
   height: 1.5rem;
   border-radius: 9999px;
-  background-color: ${props => (props.checked ? "#2563EB" : "#FBCFE8")};
+  background-color: ${props => (props.checked ? "#2f2f6e" : "#93C5FD")};
+  border: 1px solid white;
   @media ${props => props.theme.devices.tablet} {
     width: 5rem;
     height: 2.5rem;
@@ -66,9 +65,11 @@ export const ThemeIndicator = styled.span<ThemeIndicatorProps>`
   height: 1rem;
   width: 1rem;
   background-color: ${props => (props.enabled ? "#ffffff" : "#FDE68A")};
+  transform: translateX(${props => (props.enabled ? "1.5rem" : "0.25rem")});
   @media ${props => props.theme.devices.tablet} {
     height: 1.75rem;
     width: 1.75rem;
+    transform: translateX(${props => (props.enabled ? "2.75rem" : "0.25rem")});
   }
 `
 
@@ -85,7 +86,8 @@ export const NavToggle = styled.span<NavToggleProps>`
   font-weight: 900;
   justify-content: center;
   cursor: pointer;
-
+  color: ${props => props.theme.text};
+  // color: pink;
   ${props =>
     props.active
       ? `
@@ -94,7 +96,6 @@ export const NavToggle = styled.span<NavToggleProps>`
     transition: 300ms linear all;
     `
       : " transition: 300ms linear all;"}
-
   @media ${props => props.theme.devices.tablet} {
     font-size: 3rem;
     line-height: 1;
@@ -106,7 +107,7 @@ export const NavItems = styled.ul<NavToggleProps>`
   flex-direction: column;
   justify-content: flex-start;
   top: 4.5rem;
-  background: ${props => props.theme.colors.bgLightestOffset};
+  background: ${props => props.theme.background};
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -137,4 +138,27 @@ const slideOut = keyframes`
   100% {
     transform: translateX(-100%);
   }
+`
+
+export const Link = styled(ReactLink)`
+  display: flex;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+
+  @media ${props => props.theme.devices.tablet} {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+`
+
+export const LinkContainer = styled.li`
+  margin: 2.5rem;
+  vertical-align: middle;
 `

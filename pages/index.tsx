@@ -1,11 +1,16 @@
 import type { NextPage } from "next"
+import { ReactElement } from "react"
 import Example from "../components/example"
 import Nav from "../components/nav"
 
-const Home: NextPage = () => {
+interface Props {
+  setTheme: (value: string) => void
+}
+
+const Home = ({ setTheme }: Props): ReactElement => {
   return (
     <div>
-      <Nav />
+      <Nav setTheme={setTheme} />
     </div>
   )
 }
