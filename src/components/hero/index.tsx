@@ -29,16 +29,15 @@ const Hero = ({ bgColor }: Props): ReactElement => {
 
           <Styled.ImagesInnerContainer>
             {bgColor === "lightTheme" && (
-              <div className="relative">
-                <div className="absolute">
-                  <Styled.SlideIn
-                    src="/images/sun.png"
-                    alt="sun"
-                    layout={"raw"}
-                    width={300}
-                    height={300}
-                  />
-                </div>
+              <Styled.Images>
+                <Styled.SlideIn
+                  src="/images/sun.png"
+                  alt="sun"
+                  layout={"raw"}
+                  width={300}
+                  height={300}
+                />
+
                 <Styled.SlideOut
                   src="/images/moon.png"
                   alt="moon"
@@ -46,10 +45,10 @@ const Hero = ({ bgColor }: Props): ReactElement => {
                   width={300}
                   height={300}
                 />
-              </div>
+              </Styled.Images>
             )}
             {bgColor === "darkTheme" && (
-              <div className="relative">
+              <Styled.Images>
                 <Styled.SlideIn
                   src="/images/moon.png"
                   className="slide-out-tl"
@@ -63,8 +62,9 @@ const Hero = ({ bgColor }: Props): ReactElement => {
                   alt="sun"
                   width={300}
                   height={300}
+                  layout={"raw"}
                 />
-              </div>
+              </Styled.Images>
             )}
           </Styled.ImagesInnerContainer>
         </Styled.ImagesContainer>

@@ -120,19 +120,6 @@ export const ImagesInnerContainer = styled.div`
   max-width: 20rem;
 `
 
-export const HeroImage = styled(Image)`
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 3rem;
-  width: 83.333333%;
-
-  @media ${props => props.theme.devices.tablet} {
-    left: 0;
-    width: 100%;
-  }
-`
-
 const slideIn = keyframes`
   0% {
     -webkit-transform: translateY(0) translateX(0);
@@ -161,6 +148,9 @@ export const SlideIn = styled(Image)`
   ${css`
     animation: ${slideIn} 9s cubic-bezier(0.55, 0.085, 0.68, 0.53) reverse both;
   `}
+`
+export const Images = styled.div`
+  position: relative;
 `
 
 const slideOut = keyframes`
