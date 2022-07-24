@@ -2,7 +2,6 @@ import { DefaultTheme } from "styled-components"
 
 const theme: DefaultTheme = {
   colors: {
-    bg: "#0b0908",
     bgCream: "#F0EDE4",
     bgLightestOffset: "#E1DDCE",
     bgLightOffset: "#E1E1E1",
@@ -25,12 +24,12 @@ const theme: DefaultTheme = {
 
 const lightTheme = {
   ...theme,
-  background: "#E1DDCE",
+  bg: "#E1DDCE",
   text: "black"
 }
 const darkTheme = {
   ...theme,
-  background: "#0b0908",
+  bg: "#0b0908",
   text: "white"
 }
 

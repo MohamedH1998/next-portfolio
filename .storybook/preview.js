@@ -1,14 +1,13 @@
 import "!style-loader!css-loader!postcss-loader!tailwindcss/tailwind.css"
 import { addDecorator } from "@storybook/react"
+import { withThemesProvider } from "storybook-addon-styled-component-theme"
+
 import { ThemeProvider } from "styled-components"
+import { lightTheme, darkTheme } from "../styled/theme"
 
-import { theme } from "../styled/theme"
+const themes = [lightTheme, darkTheme]
 
-const ThemeDecorator = storyFn => (
-  <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
-)
-
-addDecorator(ThemeDecorator)
+addDecorator(withThemesProvider(themes), ThemeProvider)
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

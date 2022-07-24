@@ -11,7 +11,7 @@ export const Container = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100vw;
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.bg};
 `
 
 export const InnerContainer = styled.div`
@@ -87,7 +87,6 @@ export const NavToggle = styled.span<NavToggleProps>`
   justify-content: center;
   cursor: pointer;
   color: ${props => props.theme.text};
-  // color: pink;
   ${props =>
     props.active
       ? `
@@ -96,6 +95,7 @@ export const NavToggle = styled.span<NavToggleProps>`
     transition: 300ms linear all;
     `
       : " transition: 300ms linear all;"}
+
   @media ${props => props.theme.devices.tablet} {
     font-size: 3rem;
     line-height: 1;
