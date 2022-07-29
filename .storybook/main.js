@@ -2,8 +2,8 @@ const path = require("path")
 
 module.exports = {
   stories: [
-    "../components/**/**/*.stories.mdx",
-    "../components/**/**/*.stories.@(js|jsx|ts|tsx)"
+    "../src/components/**/**/*.stories.mdx",
+    "../src/components/**/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
     "@storybook/addon-links",
@@ -15,6 +15,7 @@ module.exports = {
   core: {
     builder: "@storybook/builder-webpack5"
   },
+  staticDirs: ["../public", "../static"],
   webpackFinal: async config => {
     config.module.rules.push({
       test: /\.css$/,

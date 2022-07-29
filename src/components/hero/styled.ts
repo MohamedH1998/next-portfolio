@@ -11,6 +11,7 @@ export const Container = styled.div`
   width: 100vw;
   background: ${props => props.theme.bg};
   color: ${props => props.theme.text};
+  z-index: 1;
 `
 
 export const InnerContainer = styled.div`
@@ -151,6 +152,7 @@ export const SlideIn = styled(Image)`
 `
 export const Images = styled.div`
   position: relative;
+  z-index: -0;
 `
 
 const slideOut = keyframes`

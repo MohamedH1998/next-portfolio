@@ -1,13 +1,13 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement, useContext } from "react"
+import { ThemeContext } from "styled-components"
 
 import { FiChevronDown } from "react-icons/fi"
 
 import * as Styled from "./styled"
 
-interface Props {
-  bgColor: string
-}
-const Hero = ({ bgColor }: Props): ReactElement => {
+const Hero = (): ReactElement => {
+  const themeContext = useContext(ThemeContext)
+  const { theme } = themeContext
   return (
     <Styled.Container>
       <Styled.InnerContainer className="home">
@@ -28,7 +28,7 @@ const Hero = ({ bgColor }: Props): ReactElement => {
           <Styled.RotatedHeading>self-taught dev</Styled.RotatedHeading>
 
           <Styled.ImagesInnerContainer>
-            {bgColor === "lightTheme" && (
+            {theme === "lightTheme" && (
               <Styled.Images>
                 <Styled.SlideIn
                   src="/images/sun.png"
@@ -47,7 +47,7 @@ const Hero = ({ bgColor }: Props): ReactElement => {
                 />
               </Styled.Images>
             )}
-            {bgColor === "darkTheme" && (
+            {theme === "darkTheme" && (
               <Styled.Images>
                 <Styled.SlideIn
                   src="/images/moon.png"

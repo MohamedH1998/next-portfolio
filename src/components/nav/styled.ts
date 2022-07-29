@@ -107,12 +107,14 @@ export const NavItems = styled.ul<NavToggleProps>`
   flex-direction: column;
   justify-content: flex-start;
   top: 4.5rem;
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.bg};
+  color: ${props => props.theme.text};
   position: absolute;
   width: 100vw;
   height: 100vh;
   transform: translateX(-100%);
   -webkit-transform: translateX(-100%);
+  z-index: 9999;
   ${props =>
     props.active
       ? css`

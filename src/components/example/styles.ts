@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const Container = styled.div`
-background: pink;
-padding: 50px;
+  background: pink;
+  padding: 50px;
 `

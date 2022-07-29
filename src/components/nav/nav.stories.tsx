@@ -5,7 +5,7 @@ import useState from "storybook-addon-state"
 import Nav from "./index"
 
 export default {
-  title: "Nav / Nav",
+  title: "Components / Nav",
   component: Nav
 } as ComponentMeta<typeof Nav>
 const Template: ComponentStory<typeof Nav> = () => {

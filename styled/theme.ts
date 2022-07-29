@@ -24,11 +24,13 @@ const theme: DefaultTheme = {
 
 const lightTheme = {
   ...theme,
+  theme: "lightTheme",
   bg: "#E1DDCE",
   text: "black"
 }
 const darkTheme = {
   ...theme,
+  theme: "darkTheme",
   bg: "#0b0908",
   text: "white"
 }
