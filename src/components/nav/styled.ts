@@ -32,9 +32,17 @@ export const Icon = styled.i`
   text-decoration: none;
   justify-self: start;
   color: ${props => props.theme.colors.skin};
+  // @media ${props => props.theme.devices.tablet} {
+  //   font-size: 1.875rem;
+  //   line-height: 2.25rem;
+  // }
+`
+
+export const HomeIcon = styled(Icon)`
+  color: ${props => props.theme.text};
+  font-size: 1.5rem;
   @media ${props => props.theme.devices.tablet} {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+    font-size: 2rem;
   }
 `
 interface ThemeProps {
@@ -51,10 +59,10 @@ export const ThemeSwitch = styled(Switch)<ThemeProps>`
   border-radius: 9999px;
   background-color: ${props => (props.checked ? "#2f2f6e" : "#93C5FD")};
   border: 1px solid white;
-  @media ${props => props.theme.devices.tablet} {
-    width: 5rem;
-    height: 2.5rem;
-  }
+  // @media ${props => props.theme.devices.tablet} {
+  //   width: 5rem;
+  //   height: 2.5rem;
+  // }
 `
 interface ThemeIndicatorProps {
   enabled: boolean
@@ -66,11 +74,12 @@ export const ThemeIndicator = styled.span<ThemeIndicatorProps>`
   width: 1rem;
   background-color: ${props => (props.enabled ? "#ffffff" : "#FDE68A")};
   transform: translateX(${props => (props.enabled ? "1.5rem" : "0.25rem")});
-  @media ${props => props.theme.devices.tablet} {
-    height: 1.75rem;
-    width: 1.75rem;
-    transform: translateX(${props => (props.enabled ? "2.75rem" : "0.25rem")});
-  }
+  // @media ${props => props.theme.devices.tablet} {
+  //   height: 1.75rem;
+  //   width: 1.75rem;
+  //   transform: translateX(${props =>
+    props.enabled ? "2.75rem" : "0.25rem"});
+  // }
 `
 
 interface NavToggleProps {
@@ -94,12 +103,11 @@ export const NavToggle = styled.span<NavToggleProps>`
     transform-origin: 50% 50%;
     transition: 300ms linear all;
     `
-      : " transition: 300ms linear all;"}
-
-  @media ${props => props.theme.devices.tablet} {
-    font-size: 3rem;
-    line-height: 1;
-  }
+      : " transition: 300ms linear all;"}// @media ${props =>
+    props.theme.devices.tablet} {
+  //   font-size: 3rem;
+  //   line-height: 1;
+  // }
 `
 
 export const NavItems = styled.ul<NavToggleProps>`
@@ -155,8 +163,7 @@ export const Link = styled(ReactLink)`
   @media ${props => props.theme.devices.tablet} {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 1.2rem;
   }
 `
 

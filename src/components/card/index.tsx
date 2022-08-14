@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react"
+import { liveDemoButtonText, sourceCodeButtonText } from "./constants"
 import * as Styled from "./styles"
 
 interface Props {
@@ -27,8 +28,8 @@ const Project = ({
         </a>
         <Styled.CardText>{cardText}</Styled.CardText>
         <Styled.LinksContainer>
-          <Styled.Link href={liveDemo}>live demo</Styled.Link>
-          <Styled.Link href={sourceCode}>source code</Styled.Link>
+          <Styled.Link href={liveDemo}>{liveDemoButtonText}</Styled.Link>
+          <Styled.Link href={sourceCode}>{sourceCodeButtonText}</Styled.Link>
         </Styled.LinksContainer>
       </Styled.InnerContainer>
     </Styled.Container>

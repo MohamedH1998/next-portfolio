@@ -4,11 +4,11 @@ import * as Styled from "./styled"
 
 interface Props {
   dest: string
-  destName: string
+  sectionTitle: string
   handleClick: () => void
 }
 
-const NavLink = ({ dest, destName, handleClick }: Props): ReactElement => {
+const NavLink = ({ dest, sectionTitle, handleClick }: Props): ReactElement => {
   return (
     <Styled.LinkContainer>
       <Styled.Link
@@ -19,7 +19,7 @@ const NavLink = ({ dest, destName, handleClick }: Props): ReactElement => {
         onClick={handleClick}
         offset={-55}
       >
-        {destName}
+        {sectionTitle}
       </Styled.Link>
     </Styled.LinkContainer>
   )

@@ -6,3 +6,7 @@
   font-family: "Montserrat", serif;
   transition: all 100ms ease;
 }
+
+body {
+  width: 100vw;
+}

@@ -4,15 +4,14 @@ export const Container = styled.div`
   margin-top: 1rem;
   margin-bottom: 1rem;
   max-width: 28rem;
-  min-width: 20rem;
   border-radius: 0.5rem;
   border-width: 1px;
   border-color: #e5e7eb;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
 
   @media ${props => props.theme.devices.tablet} {
     margin-left: 1rem;
@@ -31,7 +30,7 @@ export const InnerContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 `
 
 export const CardTitle = styled.h5`
@@ -74,4 +73,3 @@ export const Link = styled.a`
     line-height: 1.75rem;
   }
 `
-

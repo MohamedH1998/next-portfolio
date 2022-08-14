@@ -1,14 +1,16 @@
-/** @type {import('next').NextConfig} */
+const withPlugins = require("next-compose-plugins")
+const withImages = require("next-images")
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
     images: {
-      domains: ["images.unsplash.com"],
+      domains: ["https://images.unsplash.com"],
       allowFutureImage: true,
       layoutRaw: true
     }
   }
 }
 
-module.exports = nextConfig
+module.exports = withPlugins([[withImages]], nextConfig)

@@ -1,15 +1,23 @@
 import React, { useState, useEffect, ReactElement } from "react"
 import { VscCircleLargeFilled } from "react-icons/vsc"
 import { SiDwavesystems } from "react-icons/si"
+import { BsHouse } from "react-icons/bs"
 
 import * as Styled from "./styled"
 import NavLink from "./nav-items"
+import {
+  aboutSectionTitle,
+  blogsSectionTitle,
+  homeSectionTitle,
+  portfolioSectionTitle
+} from "./constants"
 
 interface Props {
+  hasToggle?: boolean
   setTheme: (value: string) => void
 }
 
-const Nav = ({ setTheme }: Props): ReactElement => {
+const Nav = ({ setTheme, hasToggle = true }: Props): ReactElement => {
   const [navOpen, setNavOpen] = useState(false)
   const [darkModeEnabled, setDarkModeEnabled] = useState(false)
 
@@ -27,6 +35,13 @@ const Nav = ({ setTheme }: Props): ReactElement => {
     darkModeEnabled ? setTheme("darkTheme") : setTheme("lightTheme")
   }, [darkModeEnabled, setTheme])
 
+  const navOptions = [
+    { dest: "home", sectionTitle: homeSectionTitle },
+    { dest: "about", sectionTitle: aboutSectionTitle },
+    { dest: "portfolio", sectionTitle: portfolioSectionTitle },
+    { dest: "blogs", sectionTitle: blogsSectionTitle }
+  ]
+
   return (
     <Styled.Container>
       <Styled.InnerContainer>
@@ -41,20 +56,26 @@ const Nav = ({ setTheme }: Props): ReactElement => {
           <Styled.ThemeIndicator enabled={darkModeEnabled} />
         </Styled.ThemeSwitch>
 
-        <Styled.NavToggle active={navOpen} onClick={handleClick}>
-          <SiDwavesystems />
-        </Styled.NavToggle>
+        {hasToggle ? (
+          <Styled.NavToggle active={navOpen} onClick={handleClick}>
+            <SiDwavesystems />
+          </Styled.NavToggle>
+        ) : (
+          <Styled.HomeIcon>
+            <BsHouse />
+          </Styled.HomeIcon>
+        )}
       </Styled.InnerContainer>
 
       <Styled.NavItems active={navOpen}>
-        <NavLink handleClick={handleClick} dest="name" destName="Home" />
-        <NavLink handleClick={handleClick} dest="about" destName="About" />
-        <NavLink
-          handleClick={handleClick}
-          dest="portfolio"
-          destName="Portfolio"
-        />
-        <NavLink handleClick={handleClick} dest="blogs" destName="Blogs" />
+        {navOptions.map((navOption, i) => (
+          <NavLink
+            handleClick={handleClick}
+            key={i}
+            dest={navOption.dest}
+            sectionTitle={navOption.sectionTitle}
+          />
+        ))}
       </Styled.NavItems>
     </Styled.Container>
   )
