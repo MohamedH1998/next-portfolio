@@ -1,3 +1,4 @@
+import Image from "next/image"
 import styled from "styled-components"
 
 export const Container = styled.div`
@@ -20,7 +21,7 @@ export const Container = styled.div`
   background: ${props => props.theme.colors.bgLightOffset};
 `
 
-export const Image = styled.img`
+export const Img = styled(Image)`
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 `

@@ -4,7 +4,6 @@ import Nav from "../src/components/nav"
 import Blogs from "../src/containers/blogs"
 import Portfolio from "../src/containers/portfolio"
 import { client } from "../sanity.server"
-import Head from "next/head"
 import Meta from "../src/components/meta"
 import moment from "moment"
 

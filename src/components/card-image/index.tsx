@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react"
 import { useRouter } from "next/router"
-import moment from "moment"
 
 import * as Styled from "./styles"
 
@@ -20,6 +19,7 @@ const CardImage = ({
   slug
 }: Props): ReactElement => {
   const router = useRouter()
+
   return (
     <Styled.Container>
       <Styled.Img src={photo} alt={cardTitle} />

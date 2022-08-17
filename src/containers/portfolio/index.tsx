@@ -10,19 +10,16 @@ interface Props {
 
 const Portfolio = ({ projects }: Props): ReactElement => {
   const [formattedProjects, setFormattedProjects] = useState<any[]>([])
+
   useEffect(() => {
     if (projects.length) {
-      const imgURLBuilder = imageUrlBuilder({
-        projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string,
-        dataset: "production"
-      })
       const loadedPosts = projects.map((project: any) => {
         return {
           cardText: project.description,
           liveDemo: project.liveDemo,
           sourceCode: project.sourceCode,
           title: project.title,
-          photo: imgURLBuilder.image(project.mainImage).width(500).height(250)
+          img: project.mainImage
         }
       })
       setFormattedProjects(loadedPosts)
@@ -42,11 +39,11 @@ const Portfolio = ({ projects }: Props): ReactElement => {
           formattedProjects.map((project, i) => (
             <Card
               key={i}
-              photo={project.photo}
               cardTitle={project.title}
               sourceCode={project.sourceCode}
               liveDemo={project.liveDemo}
               cardText={project.cardText}
+              img={project.img}
             />
           ))}
       </Styled.InnerContainer>

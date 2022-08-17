@@ -1,26 +1,35 @@
+import Image from "next/image"
 import React, { ReactElement } from "react"
+import { useImageProps } from "../../../hooks/useImageProps"
 import { liveDemoButtonText, sourceCodeButtonText } from "./constants"
 import * as Styled from "./styles"
 
 interface Props {
-  photo: string
   cardTitle: string
   cardText: string
   liveDemo: string
   sourceCode: string
+  img: any
 }
 
 const Project = ({
-  photo,
   cardTitle,
   cardText,
   liveDemo,
-  sourceCode
+  sourceCode,
+  img
 }: Props): ReactElement => {
+  const formattedImg: any = useImageProps(img)
+
   return (
     <Styled.Container>
       <a href={liveDemo}>
-        <Styled.Image src={photo} alt={cardTitle} />
+        <Image
+          {...formattedImg}
+          layout="responsive"
+          sizes="(max-width: 800px) 100vw, 800px"
+          alt={cardTitle}
+        />
       </a>
       <Styled.InnerContainer>
         <a href={sourceCode}>

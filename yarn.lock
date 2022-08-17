@@ -2314,7 +2314,7 @@
     "@sanity/block-content-to-hyperscript" "^3.0.0"
     "prop-types" "^15.6.2"
 
-"@sanity/client@^3.3.3":
+"@sanity/client@^3.0.0", "@sanity/client@^3.3.3":
   "integrity" "sha512-2n4S/d49abreTa1hLehtrQ9lLR8KhnXdIb7kZajkGPGh2yWwbtMXpB7e1dxNvySmFehrJx5rtwdeO3l2IhnHBA=="
   "resolved" "https://registry.npmjs.org/@sanity/client/-/client-3.3.3.tgz"
   "version" "3.3.3"
@@ -2369,7 +2369,7 @@
   "resolved" "https://registry.npmjs.org/@sanity/image-url/-/image-url-0.140.22.tgz"
   "version" "0.140.22"
 
-"@sanity/image-url@^1.0.1":
+"@sanity/image-url@^1.0.0", "@sanity/image-url@^1.0.1":
   "integrity" "sha512-AdKQ3zMk7WdoNwoJPrAvQhW+kUtBldBX0nHtnGy+rwmgsCQ0rAXasrgH43Fhmsp/yB6piiq+F2d5qEuBFsdQVg=="
   "resolved" "https://registry.npmjs.org/@sanity/image-url/-/image-url-1.0.1.tgz"
   "version" "1.0.1"
@@ -9215,6 +9215,13 @@
     "file-loader" "^6.2.0"
     "url-loader" "^4.1.0"
 
+"next-sanity-image@^4.1.0":
+  "integrity" "sha512-DOKqiVJjGQb/FGPA5e5ezVK326w1GFx28J0XFt8XMtaaWzRfYdPQlkUhJdTDIAPIMMwQQwAmSxxA0r2rQpKigg=="
+  "resolved" "https://registry.npmjs.org/next-sanity-image/-/next-sanity-image-4.1.0.tgz"
+  "version" "4.1.0"
+  dependencies:
+    "@sanity/image-url" "^1.0.0"
+
 "next-sanity@^0.8.0":
   "integrity" "sha512-I3rJUW+3esFnXkWm49iSLq1dVBmMluGOkATSaQT2YbzxN5X1cGQtBMaV04ICGwYmSZF+Ry7O47KmpVKw8LWJMA=="
   "resolved" "https://registry.npmjs.org/next-sanity/-/next-sanity-0.8.0.tgz"
@@ -9224,7 +9231,7 @@
     "@sanity/groq-store" "^0.4.0"
     "groq" "^2.29.3"
 
-"next@12.2.3":
+"next@^11.0.0 || ^12.0.0", "next@12.2.3":
   "integrity" "sha512-TA0tmSA6Dk6S6kfvCNbF7CWYW8468gZUxr/3/30z4KvAQbXnl2ASYZElVe7q/hBW/1F1ee0tSBlHa4/sn+ZIBw=="
   "resolved" "https://registry.npmjs.org/next/-/next-12.2.3.tgz"
   "version" "12.2.3"
@@ -10575,7 +10582,7 @@
     "prismjs" "^1.27.0"
     "refractor" "^3.6.0"
 
-"react@*", "react@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1", "react@^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16 || ^17 || ^18", "react@^16.13.1 || ^17.0.0", "react@^16.3 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.4 || ^17.0.0", "react@^17 || ^18", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 0.14.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>= 16.8.6", "react@>=15.0.0", "react@>=16.8 || ^17.0.0 || ^18.0.0", "react@>=16.8.0", "react@>=18", "react@18.2.0":
+"react@*", "react@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1", "react@^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16 || ^17 || ^18", "react@^16.13.1 || ^17.0.0", "react@^16.3 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.4 || ^17.0.0", "react@^17 || ^18", "react@^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 0.14.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>= 16.8.6", "react@>=15.0.0", "react@>=16.8 || ^17.0.0 || ^18.0.0", "react@>=16.8.0", "react@>=18", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

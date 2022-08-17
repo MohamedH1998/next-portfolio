@@ -16,6 +16,7 @@ const Hero = (): ReactElement => {
         <Styled.Name>{name}</Styled.Name>
         <Styled.ButtonContainer>
           <Styled.Button
+            aria-label="twitter link"
             target="_blank"
             href="https://twitter.com/messages/compose?recipient_id=1120732375695097857&text=Hey,%20I%20came%20across%20your%20website%20and%20wanted%20to%20say%20hi!👋"
             data-screen-name="@momito8_"

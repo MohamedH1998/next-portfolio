@@ -6,7 +6,8 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     images: {
-      domains: ["https://images.unsplash.com"],
+      domains: ["https://images.unsplash.com/", "cdn.sanity.io"],
+
       allowFutureImage: true,
       layoutRaw: true
     }

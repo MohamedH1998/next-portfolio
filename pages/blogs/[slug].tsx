@@ -79,7 +79,6 @@ export const getStaticProps = async ({ params }: any) => {
   )
 
   const formattedData = data[0]
-  console.log(formattedData)
   if (!formattedData) {
     return {
       notFound: true

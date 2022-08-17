@@ -39,6 +39,7 @@ const Meta = ({ description, title, url, summary, creator, image }: Props) => (
     <meta property="og:image" content={image} />
     <meta name="twitter:image" content={image} />
     <link rel="canonical" href="" />
+    <title>{title}</title>
   </Head>
 )
 

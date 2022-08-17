@@ -45,6 +45,7 @@ const Nav = ({ setTheme, hasToggle = true }: Props): ReactElement => {
         <Styled.ThemeSwitch
           checked={darkModeEnabled}
           onChange={setDarkModeEnabled}
+          aria-label="switch theme"
         >
           <Styled.ThemeIndicator enabled={darkModeEnabled} />
         </Styled.ThemeSwitch>
