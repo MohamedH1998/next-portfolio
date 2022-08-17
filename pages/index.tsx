@@ -18,10 +18,10 @@ const Home = ({ setTheme, projects, blogs }: Props): ReactElement => {
   return (
     <>
       <Meta />
-      {/* <Nav setTheme={setTheme} />
+      <Nav setTheme={setTheme} />
       <Hero />
-      <Portfolio projects={projects} /> */}
-      <Blogs blogs={blogs} />
+      <Portfolio projects={projects} />
+      {/* <Blogs blogs={blogs} /> */}
     </>
   )
 }
