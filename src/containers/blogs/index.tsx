@@ -23,7 +23,7 @@ const Blogs = ({ blogs }: Props): ReactElement => {
               photo={blog.mainImage}
               cardTitle={blog.title}
               cardText={blog.description}
-              publishedAt={blog.publishedAt}
+              timestamp={blog.timestamp}
               slug={blog.slug.current}
             />
           ))}

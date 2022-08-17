@@ -6,6 +6,7 @@ import Portfolio from "../src/containers/portfolio"
 import { client } from "../sanity.server"
 import Head from "next/head"
 import Meta from "../src/components/meta"
+import moment from "moment"
 
 interface Props {
   setTheme: (value: string) => void
@@ -21,7 +22,7 @@ const Home = ({ setTheme, projects, blogs }: Props): ReactElement => {
       <Nav setTheme={setTheme} />
       <Hero />
       <Portfolio projects={projects} />
-      {/* <Blogs blogs={blogs} /> */}
+      <Blogs blogs={blogs} />
     </>
   )
 }
@@ -34,6 +35,10 @@ export const getStaticProps = async () => {
   const hasProjects = projects || projects.length > 0
   const hasBlogs = !blogs || blogs.length
 
+  const formattedBlogs = blogs.map((blog: any) => ({
+    ...blog,
+    timestamp: moment(blog.publishedAt).format("LT - MMM DD, YYYY")
+  }))
   if (!hasProjects && !hasBlogs) {
     return {
       props: {
@@ -54,7 +59,7 @@ export const getStaticProps = async () => {
     return {
       props: {
         projects: [],
-        blogs: blogs
+        blogs: formattedBlogs
       }
     }
   }
@@ -62,7 +67,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       projects: projects,
-      blogs: blogs
+      blogs: formattedBlogs
     }
   }
 }

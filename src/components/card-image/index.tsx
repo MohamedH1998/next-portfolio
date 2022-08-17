@@ -8,7 +8,7 @@ interface Props {
   photo: string
   cardTitle: string
   cardText: string
-  publishedAt: string
+  timestamp: string
   slug: string
 }
 
@@ -16,19 +16,17 @@ const CardImage = ({
   photo,
   cardTitle,
   cardText,
-  publishedAt,
+  timestamp,
   slug
 }: Props): ReactElement => {
   const router = useRouter()
-  const timeStamp = moment(publishedAt).format("LT - MMM DD, YYYY")
-
   return (
     <Styled.Container>
       <Styled.Img src={photo} alt={cardTitle} />
       <Styled.InnerContainer>
         <Styled.OverLap>
           <Styled.CardTitle>{cardTitle}</Styled.CardTitle>
-          <Styled.TimeStamp>{timeStamp}</Styled.TimeStamp>
+          <Styled.TimeStamp>{timestamp}</Styled.TimeStamp>
           <Styled.CardText>{cardText}</Styled.CardText>
           <Styled.Button onClick={() => router.push(`/blogs/${slug}`)}>
             Read more
