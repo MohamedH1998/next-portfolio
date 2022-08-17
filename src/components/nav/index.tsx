@@ -11,6 +11,7 @@ import {
   homeSectionTitle,
   portfolioSectionTitle
 } from "./constants"
+import { useRouter } from "next/router"
 
 interface Props {
   hasToggle?: boolean
@@ -21,6 +22,7 @@ const Nav = ({ setTheme, hasToggle = true }: Props): ReactElement => {
   const [navOpen, setNavOpen] = useState(false)
   const [darkModeEnabled, setDarkModeEnabled] = useState(false)
 
+  const router = useRouter()
   const handleClick = () => {
     setNavOpen(prev => !prev)
   }
@@ -61,7 +63,7 @@ const Nav = ({ setTheme, hasToggle = true }: Props): ReactElement => {
             <SiDwavesystems />
           </Styled.NavToggle>
         ) : (
-          <Styled.HomeIcon>
+          <Styled.HomeIcon onClick={() => router.push("/")}>
             <BsHouse />
           </Styled.HomeIcon>
         )}

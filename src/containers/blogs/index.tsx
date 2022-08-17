@@ -7,7 +7,6 @@ interface Props {
   blogs: any
 }
 const Blogs = ({ blogs }: Props): ReactElement => {
-  console.log(blogs)
   return (
     <Styled.Container>
       <Styled.HeaderContainer>

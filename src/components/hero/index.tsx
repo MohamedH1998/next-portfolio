@@ -33,6 +33,7 @@ const Hero = (): ReactElement => {
                   layout={"raw"}
                   width={300}
                   height={300}
+                  priority
                 />
 
                 <Styled.SlideOut
@@ -41,6 +42,7 @@ const Hero = (): ReactElement => {
                   layout={"raw"}
                   width={300}
                   height={300}
+                  priority
                 />
               </Styled.Images>
             )}
@@ -52,6 +54,7 @@ const Hero = (): ReactElement => {
                   layout={"raw"}
                   width={300}
                   height={300}
+                  priority
                 />
                 <Styled.SlideOut
                   src="/images/sun.png"
@@ -59,6 +62,7 @@ const Hero = (): ReactElement => {
                   width={300}
                   height={300}
                   layout={"raw"}
+                  priority
                 />
               </Styled.Images>
             )}

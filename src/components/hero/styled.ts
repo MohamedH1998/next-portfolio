@@ -94,11 +94,10 @@ export const ImagesContainer = styled.div`
 
 export const RotatedHeading = styled.div`
   left: 0;
-  top: 100%;
-  text-align: right;
   width: 260px;
   z-index: 999;
-  --tw-rotate: -90deg;
+  rotate: -90deg;
+  text-align: right;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y))
     rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
     scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));

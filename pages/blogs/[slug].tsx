@@ -1,62 +1,73 @@
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
-import BlockContent from "@sanity/block-content-to-react"
 import imageUrlBuilder from "@sanity/image-url"
 import Post from "../../src/containers/posts"
 import Nav from "../../src/components/nav"
+import { client } from "../../sanity.server"
 
 interface Props {
   setTheme: (value: string) => void
+  body: any
+  description: string
+  title: string
+  mainImage: string
+  topic: string
+  avatar: any
+  date: string
 }
 
-const Blog = ({ body, description, title, image, setTheme }: any) => {
-  const [imageUrl, setImageUrl] = useState("")
-
-  const router = useRouter()
-
+const Blog = ({
+  body,
+  description,
+  title,
+  mainImage,
+  setTheme,
+  topic,
+  avatar,
+  date
+}: Props) => {
+  const [avatarURL, setAvatarUrl] = useState<string>("")
   useEffect(() => {
-    const imgBuilder = imageUrlBuilder({
-      projectId: "tl80kdlo",
+    const imgURLBuilder = imageUrlBuilder({
+      projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string,
       dataset: "production"
     })
 
-    setImageUrl(imgBuilder.image(image))
-  }, [image])
-
-  // return (
-  //   <div className="">
-  //     <h1>{title}</h1>
-  //     {imageUrl && <img src={imageUrl} />}
-  //     <BlockContent blocks={body} />
-  //     <BlockContent blocks={description} />
-  //   </div>
-  // )
+    setAvatarUrl(imgURLBuilder.image(avatar) as unknown as string)
+  }, [avatar])
 
   return (
     <>
       <Nav setTheme={setTheme} hasToggle={false} />
-      <Post />
+      <Post
+        avatar={avatarURL}
+        body={body}
+        description={description}
+        title={title}
+        mainImage={mainImage}
+        topic={topic}
+        author={avatar.author}
+        date={date}
+      />
     </>
   )
 }
 
 export default Blog
 
-export async function getStaticProps(context: { params: any }) {
-  const { slug } = context.params
-
+export const getStaticProps = async ({ params }: any) => {
+  const { slug } = params
   if (!slug) {
     return {
       notFound: true
     }
   }
-  const query = encodeURIComponent(
-    `*[ _type == "post" && slug.current == "${slug}" ]`
+
+  const data = await client.fetch(
+    `*[ _type == "blogs" && slug.current == "${slug}" ]`
   )
-  const url = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${query}`
-  const result = await fetch(url)
-  const data = await result.json()
-  const formattedData = data.result[0]
+
+  const formattedData = data[0]
   if (!formattedData) {
     return {
       notFound: true
@@ -67,21 +78,23 @@ export async function getStaticProps(context: { params: any }) {
       body: formattedData.body,
       description: formattedData.description,
       title: formattedData.title,
-      image: formattedData.mainImage
+      mainImage: formattedData.mainImage,
+      topic: formattedData.topic,
+      avatar: formattedData.avatar,
+      date: formattedData.publishedAt
     }
   }
 }
 
 export async function getStaticPaths() {
-  const data = {
-    blogs: [{ id: "my-first-developer-role" }]
-  }
+  const blogs = await client.fetch(`*[ _type == "blogs" ]`)
 
-  const ids = data.blogs.map(blog => blog.id)
-  const pathsWithParams = ids.map(id => ({ params: { slug: id } }))
+  const ids = blogs.map((blog: any) => blog.slug.current)
+
+  const pathsWithParams = ids.map((id: string) => ({ params: { slug: id } }))
 
   return {
     paths: pathsWithParams,
-    fallback: true
+    fallback: false
   }
 }

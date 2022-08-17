@@ -47,12 +47,14 @@ export const OverLap = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 0.5rem;
+  width: 100%;
 
   @media ${props => props.theme.devices.tablet} {
     position: absolute;
     left: 20rem;
     background: ${props => props.theme.colors.bgLightOffset};
     padding: 1.5rem 1rem;
+    width: 50%;
   }
 `
 

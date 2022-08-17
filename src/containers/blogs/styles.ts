@@ -47,9 +47,12 @@ export const InnerContainer = styled.div`
   width: 80%;
 
   @media ${props => props.theme.devices.laptop} {
-    flex-direction: unset;
+    flex-direction: row;
     flex-wrap: wrap;
-    padding-left: 2rem;
+    margin: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
 `
 export const OuterContainer = styled.div`

@@ -1,10 +1,9 @@
-import type { NextPage } from "next"
 import { ReactElement } from "react"
-import CardImage from "../src/components/card-image"
 import Hero from "../src/components/hero"
 import Nav from "../src/components/nav"
 import Blogs from "../src/containers/blogs"
 import Portfolio from "../src/containers/portfolio"
+import { client } from "../sanity.server"
 
 interface Props {
   setTheme: (value: string) => void
@@ -26,19 +25,11 @@ const Home = ({ setTheme, projects, blogs }: Props): ReactElement => {
 
 export default Home
 
-export const getServerSideProps = async () => {
-  const projectsQuery = encodeURIComponent('*[ _type == "projects" ]')
-  const blogsQuery = encodeURIComponent('*[ _type == "blogs" ]')
-  const projectsURL = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${projectsQuery}`
-  const blogsURL = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${blogsQuery}`
-
-  const projectsResult = await fetch(projectsURL)
-  const projectsData = await projectsResult.json()
-  const blogsResult = await fetch(blogsURL)
-  const blogsData = await blogsResult.json()
-
-  const hasProjects = projectsData.result || projectsData.result.length > 0
-  const hasBlogs = !blogsData.result || blogsData.result.length
+export const getStaticProps = async () => {
+  const projects = await client.fetch('*[ _type == "projects" ]')
+  const blogs = await client.fetch('*[ _type == "blogs" ]')
+  const hasProjects = projects || projects.length > 0
+  const hasBlogs = !blogs || blogs.length
 
   if (!hasProjects && !hasBlogs) {
     return {
@@ -51,7 +42,7 @@ export const getServerSideProps = async () => {
   if (hasProjects && !hasBlogs) {
     return {
       props: {
-        projects: projectsData.result,
+        projects: projects,
         blogs: []
       }
     }
@@ -60,15 +51,15 @@ export const getServerSideProps = async () => {
     return {
       props: {
         projects: [],
-        blogs: blogsData.result
+        blogs: blogs
       }
     }
   }
 
   return {
     props: {
-      projects: projectsData.result,
-      blogs: blogsData.result
+      projects: projects,
+      blogs: blogs
     }
   }
 }
