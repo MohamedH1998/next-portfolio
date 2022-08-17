@@ -32,7 +32,7 @@ const Portfolio = ({ projects }: Props): ReactElement => {
   return (
     <Styled.Container>
       <Styled.HeaderContainer>
-        <Styled.Header>Portfolio</Styled.Header>
+        <Styled.Header>Projects</Styled.Header>
         <Styled.LineContainer>
           <Styled.Line />
         </Styled.LineContainer>

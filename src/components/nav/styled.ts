@@ -34,6 +34,10 @@ export const Icon = styled.i`
   color: ${props => props.theme.colors.skin};
 `
 
+export const InfinityIcon = styled(Icon)`
+  font-size: 2rem;
+`
+
 export const HomeIcon = styled(Icon)`
   color: ${props => props.theme.text};
   font-size: 1.5rem;
@@ -157,4 +161,5 @@ export const Link = styled(ReactLink)`
 export const LinkContainer = styled.li`
   margin: 2.5rem;
   vertical-align: middle;
+  list-style: none;
 `

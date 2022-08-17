@@ -1,7 +1,7 @@
 import React, { ReactElement, useContext } from "react"
 import { ThemeContext } from "styled-components"
 
-import { FiChevronDown } from "react-icons/fi"
+import { MdOutlineTouchApp } from "react-icons/md"
 
 import * as Styled from "./styled"
 import { heading, name, rotatedHeading, subheading } from "./constants"
@@ -11,12 +11,16 @@ const Hero = (): ReactElement => {
   const { theme } = themeContext
   return (
     <Styled.Container>
-      <Styled.InnerContainer className="home">
+      <Styled.InnerContainer>
         <Styled.Heading>{heading}</Styled.Heading>
         <Styled.Name>{name}</Styled.Name>
         <Styled.ButtonContainer>
-          <Styled.Button to="about" spy={true} smooth={true}>
-            <FiChevronDown />
+          <Styled.Button
+            target="_blank"
+            href="https://twitter.com/messages/compose?recipient_id=1120732375695097857&text=Hey,%20I%20came%20across%20your%20website%20and%20wanted%20to%20say%20hi!👋"
+            data-screen-name="@momito8_"
+          >
+            <MdOutlineTouchApp />
           </Styled.Button>
 
           <Styled.SubHeading>{subheading}</Styled.SubHeading>

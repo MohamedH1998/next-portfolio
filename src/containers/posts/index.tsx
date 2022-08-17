@@ -27,18 +27,13 @@ const Post = ({
   date
 }: Props): ReactElement => {
   const timeStamp = moment(date).format("DD MMM YYYY")
-
-  interface Props {
-    children: ReactNode
-  }
-
   return (
     <Styled.Container>
       <Styled.Small>{topic}</Styled.Small>
       <Styled.Header>{title}</Styled.Header>
       <Styled.Summary>{description}</Styled.Summary>
       <Styled.AuthorContainer>
-        <Styled.Avatar name={author} src={avatar} />
+        <Styled.Avatar size="lg" name={author} src={avatar} />
         <Styled.AuthorInfo>
           <small>{author}</small>
           <Styled.Timestamp>{timeStamp}</Styled.Timestamp>

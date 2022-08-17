@@ -1,12 +1,10 @@
 import React, { useState, useEffect, ReactElement } from "react"
 import { VscCircleLargeFilled } from "react-icons/vsc"
-import { SiDwavesystems } from "react-icons/si"
+import { TbInfinity } from "react-icons/tb"
 import { BsHouse } from "react-icons/bs"
 
 import * as Styled from "./styled"
-import NavLink from "./nav-items"
 import {
-  aboutSectionTitle,
   blogsSectionTitle,
   homeSectionTitle,
   portfolioSectionTitle
@@ -28,20 +26,13 @@ const Nav = ({ setTheme, hasToggle = true }: Props): ReactElement => {
   }
 
   useEffect(() => {
-    navOpen
-      ? (document.body.style.overflowX = "hidden")
-      : (document.body.style.overflowX = "unset")
-  }, [navOpen])
-
-  useEffect(() => {
     darkModeEnabled ? setTheme("darkTheme") : setTheme("lightTheme")
   }, [darkModeEnabled, setTheme])
 
   const navOptions = [
     { dest: "home", sectionTitle: homeSectionTitle },
-    { dest: "about", sectionTitle: aboutSectionTitle },
     { dest: "portfolio", sectionTitle: portfolioSectionTitle },
-    { dest: "blogs", sectionTitle: blogsSectionTitle }
+    { dest: "posts", sectionTitle: blogsSectionTitle }
   ]
 
   return (
@@ -59,26 +50,15 @@ const Nav = ({ setTheme, hasToggle = true }: Props): ReactElement => {
         </Styled.ThemeSwitch>
 
         {hasToggle ? (
-          <Styled.NavToggle active={navOpen} onClick={handleClick}>
-            <SiDwavesystems />
-          </Styled.NavToggle>
+          <Styled.InfinityIcon>
+            <TbInfinity />
+          </Styled.InfinityIcon>
         ) : (
           <Styled.HomeIcon onClick={() => router.push("/")}>
             <BsHouse />
           </Styled.HomeIcon>
         )}
       </Styled.InnerContainer>
-
-      <Styled.NavItems active={navOpen}>
-        {navOptions.map((navOption, i) => (
-          <NavLink
-            handleClick={handleClick}
-            key={i}
-            dest={navOption.dest}
-            sectionTitle={navOption.sectionTitle}
-          />
-        ))}
-      </Styled.NavItems>
     </Styled.Container>
   )
 }

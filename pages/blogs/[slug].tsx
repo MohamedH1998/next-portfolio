@@ -4,6 +4,7 @@ import imageUrlBuilder from "@sanity/image-url"
 import Post from "../../src/containers/posts"
 import Nav from "../../src/components/nav"
 import { client } from "../../sanity.server"
+import Meta from "../../src/components/meta"
 
 interface Props {
   setTheme: (value: string) => void
@@ -14,6 +15,7 @@ interface Props {
   topic: string
   avatar: any
   date: string
+  slug: string
 }
 
 const Blog = ({
@@ -24,7 +26,8 @@ const Blog = ({
   setTheme,
   topic,
   avatar,
-  date
+  date,
+  slug
 }: Props) => {
   const [avatarURL, setAvatarUrl] = useState<string>("")
   useEffect(() => {
@@ -38,6 +41,14 @@ const Blog = ({
 
   return (
     <>
+      <Meta
+        description={description}
+        title={title}
+        url={`momito.co.uk/blogs/${slug}`}
+        summary={description}
+        creator={avatar.author}
+        image={mainImage}
+      />
       <Nav setTheme={setTheme} hasToggle={false} />
       <Post
         avatar={avatarURL}
@@ -68,6 +79,7 @@ export const getStaticProps = async ({ params }: any) => {
   )
 
   const formattedData = data[0]
+  console.log(formattedData)
   if (!formattedData) {
     return {
       notFound: true
@@ -81,7 +93,8 @@ export const getStaticProps = async ({ params }: any) => {
       mainImage: formattedData.mainImage,
       topic: formattedData.topic,
       avatar: formattedData.avatar,
-      date: formattedData.publishedAt
+      date: formattedData.publishedAt,
+      slug: formattedData.slug.current
     }
   }
 }

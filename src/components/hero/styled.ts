@@ -65,7 +65,7 @@ export const ButtonContainer = styled.div`
   align-items: center;
   width: 100%;
 `
-export const Button = styled(Link)`
+export const Button = styled.a`
   padding: 0.75rem;
   font-size: 1rem;
   border-radius: 9999px;
