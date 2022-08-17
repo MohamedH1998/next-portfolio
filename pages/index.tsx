@@ -4,6 +4,8 @@ import Nav from "../src/components/nav"
 import Blogs from "../src/containers/blogs"
 import Portfolio from "../src/containers/portfolio"
 import { client } from "../sanity.server"
+import Head from "next/head"
+import Meta from "../src/components/meta"
 
 interface Props {
   setTheme: (value: string) => void
@@ -15,6 +17,7 @@ interface Props {
 const Home = ({ setTheme, projects, blogs }: Props): ReactElement => {
   return (
     <>
+      <Meta />
       <Nav setTheme={setTheme} />
       <Hero />
       <Portfolio projects={projects} />
