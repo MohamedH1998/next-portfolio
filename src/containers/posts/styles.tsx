@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Avatar as ChakraAvatar } from "@chakra-ui/react"
+import Image from "next/image"
 
 export const Container = styled.div`
   display: flex;
@@ -8,6 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   padding-top: 3rem;
+  padding-bottom: 3rem;
   background: ${props => props.theme.bg};
   color: ${props => props.theme.text};
 `
@@ -45,9 +47,18 @@ export const Avatar = styled(ChakraAvatar)`
   margin-right: 10px;
   align-self: center;
 `
-export const Image = styled.img`
+
+export const ImgContainer = styled.div`
+  width: 100%;
   padding: 2rem 1rem;
 
+  @media ${props => props.theme.devices.tablet} {
+    width: 80%;
+    padding: 2rem 1rem;
+  }
+`
+export const Img = styled(Image)`
+  object-fit: cover;
   @media ${props => props.theme.devices.laptop} {
     max-width: 100%;
     width: 1200px;

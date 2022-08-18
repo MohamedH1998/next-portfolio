@@ -1,3 +1,4 @@
+import Image from "next/image"
 import styled from "styled-components"
 
 export const Container = styled.div`
@@ -24,16 +25,19 @@ export const Container = styled.div`
   background: ${props => props.theme.colors.bgLightOffset};
 `
 
-export const Img = styled.img`
+export const ImgContainer = styled.div`
+  display: block;
+  width: 50%;
+`
+export const Img = styled(Image)`
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  width: 100%;
+  object-fit: cover;
+
   @media ${props => props.theme.devices.tablet} {
     border-radius: unset;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
-    width: 50%;
-    object-fit: cover;
   }
 `
 

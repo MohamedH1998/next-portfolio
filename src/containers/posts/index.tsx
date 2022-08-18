@@ -4,6 +4,7 @@ import * as Styled from "./styles"
 import moment from "moment"
 import { PortableText } from "@portabletext/react"
 import components from "../../components/sanity-components"
+import { useImageProps } from "../../../hooks/useImageProps"
 
 interface Props {
   avatar: string
@@ -27,6 +28,7 @@ const Post = ({
   date
 }: Props): ReactElement => {
   const timeStamp = moment(date).format("DD MMM YYYY")
+  const formattedImg: any = useImageProps(mainImage)
   return (
     <Styled.Container>
       <Styled.Small>{topic}</Styled.Small>
@@ -39,7 +41,14 @@ const Post = ({
           <Styled.Timestamp>{timeStamp}</Styled.Timestamp>
         </Styled.AuthorInfo>
       </Styled.AuthorContainer>
-      <Styled.Image src={mainImage} alt={title} />
+      <Styled.ImgContainer>
+        <Styled.Img
+          {...formattedImg}
+          layout="responsive"
+          height={700}
+          alt={title}
+        />
+      </Styled.ImgContainer>
       <Styled.Body>
         <PortableText value={body} components={components} />
       </Styled.Body>

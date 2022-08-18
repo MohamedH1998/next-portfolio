@@ -63,7 +63,7 @@ export const Link = styled.a`
   color: #ffffff;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 500;
+  font-weight: bold;
   text-align: center;
   align-items: center;
   border-radius: 0.5rem;

@@ -2,6 +2,7 @@ import React, { ReactElement } from "react"
 import { useRouter } from "next/router"
 
 import * as Styled from "./styles"
+import { useImageProps } from "../../../hooks/useImageProps"
 
 interface Props {
   photo: string
@@ -19,10 +20,18 @@ const CardImage = ({
   slug
 }: Props): ReactElement => {
   const router = useRouter()
-
+  const formattedImg: any = useImageProps(photo)
   return (
     <Styled.Container>
-      <Styled.Img src={photo} alt={cardTitle} />
+      <Styled.ImgContainer>
+        <Styled.Img
+          {...formattedImg}
+          width="355px"
+          height="300px"
+          layout="responsive"
+          alt={cardTitle}
+        />
+      </Styled.ImgContainer>
       <Styled.InnerContainer>
         <Styled.OverLap>
           <Styled.CardTitle>{cardTitle}</Styled.CardTitle>
