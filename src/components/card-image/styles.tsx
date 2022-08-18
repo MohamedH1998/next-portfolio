@@ -27,7 +27,10 @@ export const Container = styled.div`
 
 export const ImgContainer = styled.div`
   display: block;
-  width: 50%;
+  width: 100%;
+  @media ${props => props.theme.devices.tablet} {
+    width: 50%;
+  }
 `
 export const Img = styled(Image)`
   border-top-left-radius: 0.5rem;
