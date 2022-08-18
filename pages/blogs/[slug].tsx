@@ -5,6 +5,8 @@ import Post from "../../src/containers/posts"
 import Nav from "../../src/components/nav"
 import { client } from "../../sanity.server"
 import Meta from "../../src/components/meta"
+import BlogMeta from "../../src/components/meta/blogs"
+import { useImageProps } from "../../hooks/useImageProps"
 
 interface Props {
   setTheme: (value: string) => void
@@ -38,16 +40,17 @@ const Blog = ({
 
     setAvatarUrl(imgURLBuilder.image(avatar) as unknown as string)
   }, [avatar])
+  const formattedImg: any = useImageProps(mainImage)
 
   return (
     <>
-      <Meta
+      <BlogMeta
         description={description}
         title={title}
         url={`momito.co.uk/blogs/${slug}`}
-        summary={description}
         creator={avatar.author}
-        image={mainImage}
+        image={formattedImg.url}
+        date={date}
       />
       <Nav setTheme={setTheme} hasToggle={false} />
       <Post
@@ -55,7 +58,7 @@ const Blog = ({
         body={body}
         description={description}
         title={title}
-        mainImage={mainImage}
+        mainImage={formattedImg}
         topic={topic}
         author={avatar.author}
         date={date}

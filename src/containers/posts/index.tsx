@@ -11,7 +11,7 @@ interface Props {
   body: any
   description: string
   title: string
-  mainImage: string
+  mainImage: any
   topic: string
   author: string
   date: string
@@ -28,7 +28,7 @@ const Post = ({
   date
 }: Props): ReactElement => {
   const timeStamp = moment(date).format("DD MMM YYYY")
-  const formattedImg: any = useImageProps(mainImage)
+
   return (
     <Styled.Container>
       <Styled.Small>{topic}</Styled.Small>
@@ -43,7 +43,7 @@ const Post = ({
       </Styled.AuthorContainer>
       <Styled.ImgContainer>
         <Styled.Img
-          {...formattedImg}
+          {...mainImage}
           layout="responsive"
           height={700}
           alt={title}
