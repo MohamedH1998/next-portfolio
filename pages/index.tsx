@@ -18,11 +18,8 @@ const Home = ({ setTheme, projects, blogs }: Props): ReactElement => {
   return (
     <>
       <Meta
-        description="Musings and more"
-        title="Mohamed"
+        description="Freelance Web Developer in London solving complex business problems with clean, scalable solutions - delivered as modern and customisable site."
         url="momito.co.uk"
-        summary="Musings and more"
-        creator="Mohamed Hassan"
         image="https://images.unsplash.com/photo-1503751071777-d2918b21bbd9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
       />
       <Nav setTheme={setTheme} />
