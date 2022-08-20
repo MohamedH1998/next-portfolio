@@ -74,6 +74,7 @@ export const getStaticProps = async () => {
     props: {
       projects: projects,
       blogs: formattedBlogs
-    }
+    },
+    revalidate: 172800
   }
 }
