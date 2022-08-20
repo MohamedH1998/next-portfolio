@@ -69,7 +69,7 @@ export const TimeStamp = styled.small`
   color: black;
   padding: 0.5rem 0;
 `
-export const CardTitle = styled.h5`
+export const CardTitle = styled.h3`
   margin-bottom: 0.5rem;
   color: #111827;
   font-size: 1.5rem;
