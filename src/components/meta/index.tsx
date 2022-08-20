@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Meta = ({ description, url, image }: Props) => {
-  const title = "Freelance Web Developer in London &#38; UK | Mohamed"
+  const title = "Freelance Web Developer in London & UK | Mohamed"
   return (
     <NextSeo
       title={title}
