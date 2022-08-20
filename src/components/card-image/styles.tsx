@@ -88,7 +88,7 @@ export const Button = styled.button`
   width: 50%;
   color: white;
   font-weight: bold;
-  background: ${props => props.theme.colors.skin};
+  background: ${props => props.theme.colors.bgOffset};
   margin: 0.5rem 0;
   border-radius: ${props => props.theme.borderRadius.md};
 `
