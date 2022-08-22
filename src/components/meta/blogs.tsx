@@ -12,7 +12,7 @@ interface Props {
 
 const BlogMeta = ({ description, title, url, creator, image, date }: Props) => (
   <>
-    <Meta description={description} url={url} image={image} />
+    <Meta description={description} url={url} image={image} title={title} />
     <ArticleJsonLd
       type="Blog"
       url={url}

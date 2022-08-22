@@ -41,7 +41,6 @@ const Blog = ({
     setAvatarUrl(imgURLBuilder.image(avatar) as unknown as string)
   }, [avatar])
   const formattedImg: any = useImageProps(mainImage)
-
   return (
     <>
       <BlogMeta
@@ -49,7 +48,7 @@ const Blog = ({
         title={title}
         url={`momito.co.uk/blogs/${slug}`}
         creator={avatar.author}
-        image={formattedImg.url}
+        image={formattedImg.src}
         date={date}
       />
       <Nav setTheme={setTheme} hasToggle={false} />

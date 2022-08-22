@@ -4,36 +4,39 @@ interface Props {
   description?: string
   url: string
   image: string
+  title?: string
 }
 
-const Meta = ({ description, url, image }: Props) => {
-  const title = "Freelance Web Developer in London & UK | Mohamed"
+const Meta = ({ description, url, image, title }: Props) => {
+  const updatedTitle = title
+    ? title
+    : "Freelance Web Developer in London & UK | Mohamed"
   return (
     <NextSeo
-      title={title}
+      title={updatedTitle}
       description={description}
       canonical="https://www.momito.co.uk"
       openGraph={{
         url: url,
-        title: title,
+        title: updatedTitle,
         description: description,
         images: [
           {
             url: image,
             width: 800,
             height: 600,
-            alt: title,
+            alt: updatedTitle,
             type: "image/png"
           },
           {
             url: image,
             width: 900,
             height: 800,
-            alt: title,
+            alt: updatedTitle,
             type: "image/jpeg"
           }
         ],
-        site_name: title
+        site_name: updatedTitle
       }}
       twitter={{
         handle: "@momito8_",
