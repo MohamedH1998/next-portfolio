@@ -32,32 +32,36 @@ export const InnerContainer = styled.div`
 `
 
 export const Heading = styled.p`
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   width: 50%;
 
   @media ${props => props.theme.devices.tablet} {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
 `
 
+
+
 export const Name = styled.h1`
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 1;
   font-weight: 800;
+  margin-right: 0.5rem;
 
   @media (min-width: 768px) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     font-size: 3rem;
     line-height: 1;
     font-weight: 700;
   }
 `
-
 export const ButtonContainer = styled.div`
   display: flex;
   padding-top: 0.5rem;

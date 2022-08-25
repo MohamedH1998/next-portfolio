@@ -5,12 +5,13 @@ interface Props {
   url: string
   image: string
   title?: string
+  keywords: string
 }
 
-const Meta = ({ description, url, image, title }: Props) => {
+const Meta = ({ description, url, image, title, keywords }: Props) => {
   const updatedTitle = title
-    ? title
-    : "Freelance Web Developer in London & UK | Mohamed"
+    ? `${title} | Freelance Web Dev | Momito`
+    : "Freelance Web Developer in London & UK | Momito"
   return (
     <NextSeo
       title={updatedTitle}
@@ -52,6 +53,12 @@ const Meta = ({ description, url, image, title }: Props) => {
         maxImagePreview: "none",
         maxVideoPreview: -1
       }}
+      additionalMetaTags={[
+        {
+          name: "keywords",
+          content: keywords
+        }
+      ]}
     />
   )
 }

@@ -11,6 +11,15 @@ const nextConfig = {
       allowFutureImage: true,
       layoutRaw: true
     }
+  },
+  async redirects() {
+    return [
+      {
+        source: "/blogs/3",
+        destination: "/blogs/my-first-developer-role",
+        permanent: true
+      }
+    ]
   }
 }
 

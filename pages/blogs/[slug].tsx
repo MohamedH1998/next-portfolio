@@ -50,6 +50,7 @@ const Blog = ({
         creator={avatar.author}
         image={formattedImg.src}
         date={date}
+        keywords="freelance web developer uk, how to become a developer, momito"
       />
       <Nav setTheme={setTheme} hasToggle={false} />
       <Post

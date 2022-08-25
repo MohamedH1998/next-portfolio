@@ -21,6 +21,7 @@ const Home = ({ setTheme, projects, blogs }: Props): ReactElement => {
         description="Freelance Web Developer in London solving complex business problems with clean, scalable solutions - delivered as modern and customisable site."
         url="momito.co.uk"
         image="https://images.unsplash.com/photo-1503751071777-d2918b21bbd9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        keywords="freelance web developer london, momito"
       />
       <Nav setTheme={setTheme} />
       <Hero />
