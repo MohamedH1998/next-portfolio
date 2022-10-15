@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from "react"
+import { ReactElement } from "react"
 import * as Styled from "./styles"
 
 const components = {
@@ -9,6 +9,7 @@ const components = {
     h3: ({ children }: any): ReactElement => <Styled.H3>{children}</Styled.H3>,
     h5: ({ children }: any): ReactElement => <Styled.H5>{children}</Styled.H5>,
     h6: ({ children }: any): ReactElement => <Styled.H6>{children}</Styled.H6>,
+    p: ({ children }: any): ReactElement => <Styled.P>{children}</Styled.P>,
 
     blockquote: ({ children }: any): ReactElement => (
       <blockquote className="border-l-purple-500">{children}</blockquote>

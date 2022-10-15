@@ -1,8 +1,11 @@
-import Link from "next/link"
+
 import styled from "styled-components"
 
 export const H4 = styled.h4`
   padding: 1rem 0;
+`
+export const P = styled.p`
+padding: 0.5rem 0;
 `
 
 export const H1 = styled.h1`
