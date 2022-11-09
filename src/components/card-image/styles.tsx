@@ -19,8 +19,9 @@ export const Container = styled.div`
     margin-left: 1rem;
     margin-right: 1rem;
     flex-direction: row;
-    min-width: 45rem;
+    min-width: 35rem;
     height: 19rem;
+    margin-right: 6rem;
   }
   background: ${props => props.theme.colors.bgLightOffset};
 `
@@ -29,7 +30,7 @@ export const ImgContainer = styled.div`
   display: block;
   width: 100%;
   @media ${props => props.theme.devices.tablet} {
-    width: 50%;
+    width: 65%;
   }
 `
 export const Img = styled(Image)`
@@ -58,7 +59,7 @@ export const OverLap = styled.div`
 
   @media ${props => props.theme.devices.tablet} {
     position: absolute;
-    left: 20rem;
+    left: 15rem;
     background: ${props => props.theme.colors.bgLightOffset};
     padding: 1.5rem 1rem;
     width: 50%;
@@ -81,6 +82,12 @@ export const CardText = styled.p`
   margin-bottom: 0.75rem;
   color: #374151;
   font-weight: 400;
+  @media ${props => props.theme.devices.tablet} {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
 `
 
 export const Button = styled.button`

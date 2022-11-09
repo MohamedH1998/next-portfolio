@@ -44,7 +44,7 @@ export const InnerContainer = styled.div`
   justify-content: start;
   align-items: center;
   margin: 0 2rem;
-  width: 80%;
+
 
   @media ${props => props.theme.devices.laptop} {
     flex-direction: row;
